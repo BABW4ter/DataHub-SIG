@@ -1,0 +1,187 @@
+{
+  "version": "0.6",
+  "scope": "Val-d'Oise (95)",
+  "note": "Sources documentées à intégrer. L'inscription au catalogue ne prouve pas la collecte ni la disponibilité de l'endpoint.",
+  "sources": [
+    {
+      "id": "api_carto_cadastre",
+      "name": "API Carto Cadastre",
+      "theme": "foncier",
+      "url": "https://apicarto.ign.fr/api/cadastre",
+      "formats": "geojson",
+      "status": "direct à développer",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "api_carto_gpu",
+      "name": "API Carto GPU",
+      "theme": "urbanisme",
+      "url": "https://apicarto.ign.fr/api/gpu",
+      "formats": "geojson",
+      "status": "direct à développer",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "api_carto_rpg",
+      "name": "API Carto RPG",
+      "theme": "agriculture",
+      "url": "https://apicarto.ign.fr/api/rpg",
+      "formats": "geojson",
+      "status": "direct à développer",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "hubeau_qualite",
+      "name": "Hub'Eau qualité cours d'eau",
+      "theme": "eau",
+      "url": "https://hubeau.eaufrance.fr/api",
+      "formats": "json,csv,geojson",
+      "status": "direct à développer",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "hubeau_piezo",
+      "name": "Hub'Eau piézométrie",
+      "theme": "eau",
+      "url": "https://hubeau.eaufrance.fr/api",
+      "formats": "json,csv,geojson",
+      "status": "direct à développer",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "hubeau_prelevements",
+      "name": "Hub'Eau prélèvements BNPE",
+      "theme": "eau",
+      "url": "https://hubeau.eaufrance.fr/api",
+      "formats": "json,csv,geojson",
+      "status": "direct à développer",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "hubeau_potable",
+      "name": "Hub'Eau qualité eau potable",
+      "theme": "eau",
+      "url": "https://hubeau.eaufrance.fr/api",
+      "formats": "json,csv",
+      "status": "direct à développer",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "hubeau_sispea",
+      "name": "Hub'Eau indicateurs eau assainissement",
+      "theme": "eau",
+      "url": "https://hubeau.eaufrance.fr/api",
+      "formats": "json,csv",
+      "status": "direct à développer",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "bdnb",
+      "name": "Base de données nationale des bâtiments",
+      "theme": "bati",
+      "url": "https://www.data.gouv.fr/dataservices/api-bdnb-open",
+      "formats": "json,geojson,csv",
+      "status": "direct à développer",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "gpu_documents",
+      "name": "API documents GPU",
+      "theme": "urbanisme",
+      "url": "https://www.geoportail-urbanisme.gouv.fr/api",
+      "formats": "json",
+      "status": "direct à développer",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "sandre",
+      "name": "SANDRE",
+      "theme": "eau",
+      "url": "https://www.sandre.eaufrance.fr/",
+      "formats": "wfs,xml",
+      "status": "à étudier",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "rnb",
+      "name": "Référentiel national des bâtiments",
+      "theme": "bati",
+      "url": "https://rnb.beta.gouv.fr/",
+      "formats": "json",
+      "status": "à étudier",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "ban",
+      "name": "Base adresse nationale",
+      "theme": "adresses",
+      "url": "https://adresse.data.gouv.fr/",
+      "formats": "csv,geojson",
+      "status": "à étudier",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "inpn",
+      "name": "INPN biodiversité",
+      "theme": "biodiversite",
+      "url": "https://inpn.mnhn.fr/",
+      "formats": "csv,api",
+      "status": "à étudier",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "ademe",
+      "name": "ADEME open data",
+      "theme": "energie",
+      "url": "https://data.ademe.fr/",
+      "formats": "csv,json",
+      "status": "à étudier",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "atmo",
+      "name": "Airparif / Atmo",
+      "theme": "air",
+      "url": "https://www.airparif.fr/",
+      "formats": "csv,api",
+      "status": "à étudier",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "cerema",
+      "name": "Cerema données territoriales",
+      "theme": "environnement",
+      "url": "https://data.cerema.fr/",
+      "formats": "csv,geojson",
+      "status": "à étudier",
+      "priority": "95",
+      "verified_runtime": false
+    },
+    {
+      "id": "drieat",
+      "name": "DRIEAT Île-de-France",
+      "theme": "environnement",
+      "url": "https://www.drieat.ile-de-france.developpement-durable.gouv.fr/",
+      "formats": "sig",
+      "status": "à étudier",
+      "priority": "95",
+      "verified_runtime": false
+    }
+  ]
+}
