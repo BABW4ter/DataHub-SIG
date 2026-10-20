@@ -15,7 +15,8 @@ def get_json(url, **kwargs):
     r.raise_for_status()
     return r.json()
 
-try:
+if os.getenv("POP", "true").lower() == "true":
+  try:
     communes = get_json("https://geo.api.gouv.fr/departements/" + dep + "/communes", params={"fields": "nom,code,population,centre,contour", "format": "geojson", "geometry": "contour"})
     (out / "communes_population.geojson").write_text(json.dumps(communes, ensure_ascii=False), encoding="utf-8")
     with (out / "population_communes.csv").open("w", newline="", encoding="utf-8-sig") as f:
@@ -25,7 +26,7 @@ try:
             p = feature.get("properties", {})
             w.writerow([p.get("code"), p.get("nom"), p.get("population")])
     report["sources"].append({"source": "geo.api.gouv.fr", "statut": "ok", "limite": "Population fournie par l'API, millésime à vérifier avant analyse"})
-except Exception as exc:
+  except Exception as exc:
     report["erreurs"].append("Communes : " + str(exc))
 
 # Overpass : requêtes par aire administrative départementale, sorties ponctuelles et linéaires.
@@ -37,7 +38,7 @@ if os.getenv("ARBRES", "true").lower() == "true" or os.getenv("VERTS", "true").l
         clauses += ['way["leisure"~"^(park|garden)$"](area.a);', 'relation["leisure"~"^(park|garden)$"](area.a);', 'way["landuse"="grass"](area.a);']
     query = '[out:json][timeout:180];area["boundary"="administrative"]["admin_level"="6"]["ref:INSEE"="' + dep + '"]->.a;(' + ''.join(clauses) + ');out geom;'
     try:
-        r = session.post("https://overpass.kumi.systems/api/interpreter", data={"data": query}, timeout=240)
+        r = session.post("https://overpass-api.de/api/interpreter", data={"data": query}, timeout=240)
         r.raise_for_status()
         data = r.json()
         (out / "osm_brut.json").write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
@@ -60,4 +61,6 @@ if os.getenv("ARBRES", "true").lower() == "true" or os.getenv("VERTS", "true").l
 (out / "rapport.json").write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 print(json.dumps(report, ensure_ascii=False, indent=2))
 if report["erreurs"]:
-    raise SystemExit("Collecte partielle : voir rapport.json")
+    print("AVERTISSEMENT : collecte partielle, consulter outputs/rapport.json")
+if not report["sources"]:
+    raise SystemExit("Aucune source collectée : consulter outputs/rapport.json")
