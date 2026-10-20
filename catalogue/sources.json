@@ -1,0 +1,258 @@
+{
+  "version": "0.2",
+  "description": "Catalogue de connecteurs publics français. discovery = découverte des ressources; collection = collecte opérationnelle.",
+  "sources": [
+    {
+      "id": "geo",
+      "name": "API Géo",
+      "themes": [
+        "population",
+        "urbanisme",
+        "equipements"
+      ],
+      "mode": "collection",
+      "auth": "none",
+      "url": "https://geo.api.gouv.fr/",
+      "formats": [
+        "GeoJSON",
+        "JSON"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "osm",
+      "name": "OpenStreetMap Overpass",
+      "themes": [
+        "vegetation",
+        "eau",
+        "urbanisme",
+        "equipements"
+      ],
+      "mode": "collection",
+      "auth": "none",
+      "url": "https://overpass-api.de/api/interpreter",
+      "formats": [
+        "JSON",
+        "GeoJSON converti"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "datagouv",
+      "name": "data.gouv.fr",
+      "themes": [
+        "vegetation",
+        "eau",
+        "environnement",
+        "urbanisme",
+        "foncier",
+        "population",
+        "equipements"
+      ],
+      "mode": "discovery",
+      "auth": "none",
+      "url": "https://www.data.gouv.fr/api/1/datasets/",
+      "formats": [
+        "JSON",
+        "liens de ressources"
+      ],
+      "status": "implemented"
+    },
+    {
+      "id": "ign",
+      "name": "IGN Géoplateforme",
+      "themes": [
+        "vegetation",
+        "eau",
+        "urbanisme",
+        "foncier"
+      ],
+      "mode": "discovery",
+      "auth": "varies",
+      "url": "https://geoservices.ign.fr/",
+      "formats": [
+        "WFS",
+        "OGC API",
+        "GeoPackage",
+        "Shapefile"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "insee",
+      "name": "INSEE",
+      "themes": [
+        "population",
+        "equipements"
+      ],
+      "mode": "discovery",
+      "auth": "varies",
+      "url": "https://www.insee.fr/fr/information/2862759",
+      "formats": [
+        "CSV",
+        "JSON",
+        "SDMX"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "hubeau",
+      "name": "Hub'Eau",
+      "themes": [
+        "eau",
+        "environnement"
+      ],
+      "mode": "discovery",
+      "auth": "none_for_public_endpoints",
+      "url": "https://hubeau.eaufrance.fr/",
+      "formats": [
+        "JSON",
+        "CSV"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "brgm",
+      "name": "BRGM InfoTerre",
+      "themes": [
+        "eau",
+        "environnement",
+        "foncier"
+      ],
+      "mode": "discovery",
+      "auth": "varies",
+      "url": "https://infoterre.brgm.fr/",
+      "formats": [
+        "WMS",
+        "WFS"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "georisques",
+      "name": "Géorisques",
+      "themes": [
+        "eau",
+        "environnement",
+        "urbanisme"
+      ],
+      "mode": "discovery",
+      "auth": "varies",
+      "url": "https://www.georisques.gouv.fr/doc-api",
+      "formats": [
+        "JSON"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "inpn",
+      "name": "INPN OpenObs",
+      "themes": [
+        "vegetation",
+        "environnement"
+      ],
+      "mode": "discovery",
+      "auth": "varies",
+      "url": "https://openobs.mnhn.fr/",
+      "formats": [
+        "CSV",
+        "API"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "gpu",
+      "name": "Géoportail de l'urbanisme",
+      "themes": [
+        "urbanisme",
+        "foncier"
+      ],
+      "mode": "discovery",
+      "auth": "varies",
+      "url": "https://www.geoportail-urbanisme.gouv.fr/",
+      "formats": [
+        "WFS",
+        "archives"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "cadastre",
+      "name": "Cadastre Etalab",
+      "themes": [
+        "foncier",
+        "urbanisme"
+      ],
+      "mode": "discovery",
+      "auth": "none_for_open_data",
+      "url": "https://cadastre.data.gouv.fr/",
+      "formats": [
+        "GeoJSON",
+        "Shapefile"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "dvf",
+      "name": "Demandes de valeurs foncières",
+      "themes": [
+        "foncier"
+      ],
+      "mode": "discovery",
+      "auth": "none_for_open_data",
+      "url": "https://www.data.gouv.fr/fr/datasets/demandes-de-valeurs-foncieres/",
+      "formats": [
+        "CSV"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "transport",
+      "name": "transport.data.gouv.fr",
+      "themes": [
+        "equipements",
+        "population"
+      ],
+      "mode": "discovery",
+      "auth": "varies",
+      "url": "https://transport.data.gouv.fr/",
+      "formats": [
+        "GTFS",
+        "GeoJSON"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "education",
+      "name": "Données Éducation nationale",
+      "themes": [
+        "equipements",
+        "population"
+      ],
+      "mode": "discovery",
+      "auth": "varies",
+      "url": "https://data.education.gouv.fr/",
+      "formats": [
+        "CSV",
+        "JSON"
+      ],
+      "status": "catalogued"
+    },
+    {
+      "id": "mos",
+      "name": "Institut Paris Region MOS",
+      "themes": [
+        "vegetation",
+        "urbanisme"
+      ],
+      "mode": "discovery",
+      "auth": "varies",
+      "url": "https://data.iledefrance.fr/",
+      "formats": [
+        "GeoJSON",
+        "Shapefile"
+      ],
+      "status": "catalogued"
+    }
+  ]
+}
