@@ -20,6 +20,8 @@ jobs:
           DEP: '95'
           THEMES: tous
         run: python scripts/connecteurs.py
+      - name: Vérifier les volumes collectés
+        run: python scripts/validate_harvest.py
       - name: Inventorier data.gouv Val-d'Oise
         run: python scripts/catalogue_95.py
       - uses: actions/upload-artifact@v4
