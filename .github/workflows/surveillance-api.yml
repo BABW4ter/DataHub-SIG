@@ -1,0 +1,25 @@
+name: Surveillance des API DataHub SIG
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+permissions:
+  contents: read
+jobs:
+  surveiller:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Tester les sources
+        run: python scripts/monitor_api.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: etat-api-datahub
+          path: outputs/monitoring/
+          retention-days: 30
+          if-no-files-found: warn
