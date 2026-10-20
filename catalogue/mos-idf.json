@@ -1,0 +1,17 @@
+{
+  "id": "mos_ipr_2025_2021_79",
+  "name": "MOS Île-de-France 2025 et 2021 en 79 postes",
+  "producer": "L'Institut Paris Region",
+  "territory": "Île-de-France",
+  "filter": "insee >= 95000 AND insee < 96000",
+  "dataset": "mos-occupation-du-sol-2025-and-2021-en-79-postes-de-la-region-ile-de-france",
+  "api": "https://data.iledefrance.fr/api/explore/v2.1/catalog/datasets/mos-occupation-du-sol-2025-and-2021-en-79-postes-de-la-region-ile-de-france",
+  "formats": [
+    "GeoJSON",
+    "CSV",
+    "Parquet"
+  ],
+  "licence": "Licence Ouverte 2.0",
+  "status": "connector_created_unverified",
+  "notes": "Contrôle hebdomadaire du volume; export GeoJSON sur demande, non automatique. Historique 1982+ peut nécessiter autre accès."
+}
