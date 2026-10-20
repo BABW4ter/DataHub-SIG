@@ -1,0 +1,33 @@
+name: MOS 2021-2025 Val-d'Oise
+on:
+  workflow_dispatch:
+    inputs:
+      exporter_geojson:
+        description: "Télécharger les géométries du MOS 95 (fichier potentiellement volumineux)"
+        type: boolean
+        default: false
+  schedule:
+    - cron: '15 6 * * 2'
+permissions:
+  contents: read
+jobs:
+  mos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Contrôler ou exporter le MOS
+        env:
+          EXPORT_MOS: ${{ inputs.exporter_geojson || 'false' }}
+        run: python scripts/mos_95.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mos-95
+          path: outputs/mos95/
+          retention-days: 30
+          if-no-files-found: warn
