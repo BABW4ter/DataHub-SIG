@@ -1,0 +1,45 @@
+name: Collecte DataHub SIG
+on:
+  workflow_dispatch:
+    inputs:
+      departement:
+        description: "Code département (ex: 95)"
+        required: true
+        default: "95"
+      arbres:
+        description: "Arbres et alignements OSM"
+        type: boolean
+        default: true
+      espaces_verts:
+        description: "Espaces verts OSM"
+        type: boolean
+        default: true
+      population:
+        description: "Communes et population"
+        type: boolean
+        default: true
+permissions:
+  contents: read
+jobs:
+  collecter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Collecter
+        env:
+          DEP: ${{ inputs.departement }}
+          ARBRES: ${{ inputs.arbres }}
+          VERTS: ${{ inputs.espaces_verts }}
+          POP: ${{ inputs.population }}
+        run: python scripts/collect.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: datahub-resultats
+          path: outputs/
+          if-no-files-found: warn
