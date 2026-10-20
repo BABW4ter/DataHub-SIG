@@ -1,0 +1,33 @@
+name: DataHub SIG V0.7 - Portails Opendatasoft et ArcGIS
+on:
+  workflow_dispatch:
+    inputs:
+      arcgis_service_url:
+        description: "URL HTTPS optionnelle d'un service ArcGIS FeatureServer/MapServer"
+        required: false
+        type: string
+  schedule:
+    - cron: '31 7 * * 4'
+permissions:
+  contents: read
+jobs:
+  decouvrir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Interroger les portails
+        env:
+          ARCGIS_SERVICE_URL: ${{ inputs.arcgis_service_url }}
+        run: python scripts/portails_v07.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: datahub-portails-v07
+          path: outputs/portails_v07/
+          retention-days: 30
+          if-no-files-found: warn
