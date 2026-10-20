@@ -1,0 +1,47 @@
+{
+  "portails": [
+    {
+      "id": "idf",
+      "type": "opendatasoft",
+      "url": "https://data.iledefrance.fr",
+      "scope": "Île-de-France"
+    },
+    {
+      "id": "paris",
+      "type": "opendatasoft",
+      "url": "https://opendata.paris.fr",
+      "scope": "Paris (jeux régionaux éventuels)"
+    },
+    {
+      "id": "education",
+      "type": "opendatasoft",
+      "url": "https://data.education.gouv.fr",
+      "scope": "France"
+    },
+    {
+      "id": "ademe",
+      "type": "opendatasoft",
+      "url": "https://data.ademe.fr",
+      "scope": "France"
+    },
+    {
+      "id": "transport",
+      "type": "opendatasoft",
+      "url": "https://transport.data.gouv.fr",
+      "scope": "France (portail à vérifier)"
+    }
+  ],
+  "themes": [
+    "Val-d'Oise",
+    "Val d'Oise",
+    "95",
+    "Île-de-France",
+    "foncier",
+    "biodiversité",
+    "eau",
+    "urbanisme",
+    "équipement",
+    "population"
+  ],
+  "note": "Les portails sont candidats; toute erreur API est enregistrée. Une correspondance textuelle ne prouve pas la couverture du 95."
+}
