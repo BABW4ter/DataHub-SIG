@@ -1,0 +1,26 @@
+name: Observatoire vegetation 95 - collecte et validation
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '13 8 * * 1'
+permissions:
+  contents: read
+jobs:
+  collecte:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests
+      - name: Collecter et valider les données publiques compactes
+        run: python scripts/collecte_vegetation95.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vegetation95-controle
+          path: outputs/vegetation95/
+          retention-days: 30
+          if-no-files-found: warn
