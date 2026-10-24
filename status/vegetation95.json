@@ -1,0 +1,69 @@
+{
+  "date_utc": "2026-10-24T07:08:20.013558+00:00",
+  "scope": "Val-d'Oise 95",
+  "results": {
+    "communes": {
+      "status": "verified",
+      "detail": "183 communes, géométries contrôlées: True"
+    },
+    "mos": {
+      "status": "metadata_only",
+      "detail": "Métadonnées disponibles, export complet non confirmé"
+    },
+    "bd_foret": {
+      "status": "metadata_only",
+      "detail": "50 entrées, 2 sous-entrées ; aucun fichier lourd téléchargé",
+      "product": "BDFORET"
+    },
+    "bd_topo_vegetation": {
+      "status": "metadata_only",
+      "detail": "50 entrées, 2 sous-entrées ; aucun fichier lourd téléchargé",
+      "product": "BDTOPO"
+    },
+    "ocs_ge": {
+      "status": "metadata_only",
+      "detail": "50 entrées, 2 sous-entrées ; aucun fichier lourd téléchargé",
+      "product": "OCSGE"
+    },
+    "rpg_2025": {
+      "status": "metadata_only",
+      "detail": "50 entrées, 3 sous-entrées ; aucun fichier lourd téléchargé",
+      "product": "RPG"
+    },
+    "lidar_hd_mnh": {
+      "status": "error",
+      "detail": "404 Client Error: Not Found for url: https://data.geopf.fr/telechargement/resource/MNH-LIDARHD?limit=50&page=1",
+      "product": "MNH-LIDARHD"
+    },
+    "bdtopo_wfs_extrait": {
+      "status": "empty",
+      "detail": "0 objets WFS, extrait bbox non exhaustif",
+      "layer": "BDTOPO_V3_DIFF:zone_de_vegetation"
+    },
+    "arbres_osm": {
+      "status": "verified_partial",
+      "detail": "27253 arbres OSM, inventaire participatif non exhaustif"
+    },
+    "inventaires_arbres": {
+      "status": "metadata_only",
+      "detail": "0 candidats ; couverture 95 non vérifiée"
+    }
+  },
+  "downloaded": [
+    {
+      "source": "communes",
+      "file": "communes_95.geojson",
+      "bytes": 2605004,
+      "sha256": "6e3f075cd75704ed0500987a3ea49486c6fb32d72c1083981f5f1f7a0846447a",
+      "count": 183
+    },
+    {
+      "source": "arbres_osm",
+      "file": "arbres_osm_95.geojson",
+      "bytes": 9087933,
+      "sha256": "575d1062baa3913d76b8f85b2b11320a67750322c818a8b87ea8cacd3d3c1d7c",
+      "count": 27253
+    }
+  ],
+  "complete": false
+}
