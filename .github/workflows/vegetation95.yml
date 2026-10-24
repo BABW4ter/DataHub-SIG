@@ -1,26 +1,40 @@
 name: Observatoire vegetation 95 - collecte et validation
 on:
+  push:
+    paths:
+      - 'config/vegetation95-run.json'
   workflow_dispatch:
   schedule:
-    - cron: '13 8 * * 1'
+    - cron: '12 8 * * 1'
 permissions:
-  contents: read
+  contents: write
 jobs:
   collecte:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: pip install requests
-      - name: Collecter et valider les données publiques compactes
-        run: python scripts/collecte_vegetation95.py
+      - run: python -m pip install requests
+      - name: Collecter et valider
+        run: python scripts/vegetation95_pipeline.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: vegetation95-controle
+          name: vegetation95-validation
           path: outputs/vegetation95/
           retention-days: 30
           if-no-files-found: warn
+      - name: Publier le dernier état dans le dépôt
+        if: always()
+        run: |
+          if [ -f outputs/vegetation95/bilan_collecte.json ]; then
+            mkdir -p status
+            cp outputs/vegetation95/bilan_collecte.json status/vegetation95.json
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add status/vegetation95.json
+            git diff --cached --quiet || (git commit -m 'Actualiser le statut végétation 95 [skip ci]' && git push)
+          fi
