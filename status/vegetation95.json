@@ -1,5 +1,5 @@
 {
-  "date_utc": "2026-11-02T18:14:36.231507+00:00",
+  "date_utc": "2026-11-09T18:42:28.907816+00:00",
   "scope": "Val-d'Oise 95",
   "results": {
     "communes": {
@@ -42,7 +42,7 @@
     },
     "arbres_osm": {
       "status": "verified_partial",
-      "detail": "27519 arbres OSM, inventaire participatif non exhaustif"
+      "detail": "27642 arbres OSM, inventaire participatif non exhaustif"
     },
     "inventaires_arbres": {
       "status": "metadata_only",
@@ -60,9 +60,9 @@
     {
       "source": "arbres_osm",
       "file": "arbres_osm_95.geojson",
-      "bytes": 9172508,
-      "sha256": "c444184b11553055310d432c66def3bd23e92483e140acf2f29256be5240f4ab",
-      "count": 27519
+      "bytes": 9210060,
+      "sha256": "9b652a7f7094e3fc3b7a0ed8dc0536049d62d21b2dded64e045568ec61c222e9",
+      "count": 27642
     }
   ],
   "complete": false
